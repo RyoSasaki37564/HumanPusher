@@ -5,6 +5,7 @@ using UnityEngine;
 public class TachPointGenerator : MonoBehaviour
 {
     [SerializeField] GameObject m_human = default; //降らせる人間
+    [SerializeField] GameObject m_genePos = default; //降らせる位置
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class TachPointGenerator : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit))
             {
-                Instantiate(m_human, hit.point, Quaternion.identity);
+                Instantiate(m_human, new Vector3(hit.point.x,m_genePos.transform.position.y,m_genePos.transform.position.z),transform.rotation);
             }
         }
     }
