@@ -81,7 +81,7 @@ public class TapTest : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     // タッチが発生した
                     _isTouched = true;
                     // 検出したタッチの座標をワールド座標に変換し保存
-                    _prevTouchPosi = Camera.main.ScreenToWorldPoint(taouchinfo.position);
+                    _prevTouchPosi = Camera.main.WorldToScreenPoint(taouchinfo.position);
                     break;
                 }
             }
