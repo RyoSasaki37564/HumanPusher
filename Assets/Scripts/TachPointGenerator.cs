@@ -22,7 +22,7 @@ public class TachPointGenerator : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit))
             {
-                Instantiate(m_human, new Vector3(hit.point.x,m_genePos.transform.position.y,m_genePos.transform.position.z),transform.rotation);
+                Instantiate(m_human, new Vector3(hit.point.x,m_genePos.transform.position.y,m_genePos.transform.position.z),m_genePos.transform.rotation);
             }
         }
     }
