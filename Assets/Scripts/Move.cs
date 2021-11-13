@@ -102,6 +102,7 @@ public class Move : MonoBehaviour
         if(collision.gameObject.tag == "Human")
         {
             Destroy(collision.gameObject);
+            StatusManager.Instance.AddScore(100);
         }
     }
 }
