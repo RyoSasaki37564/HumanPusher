@@ -7,12 +7,6 @@ public class TachPointGenerator : MonoBehaviour
     [SerializeField] GameObject m_human = default; //降らせる人間
     [SerializeField] GameObject m_genePos = default; //降らせる位置
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
