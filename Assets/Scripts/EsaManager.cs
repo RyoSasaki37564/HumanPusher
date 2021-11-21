@@ -20,6 +20,7 @@ public class EsaManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            GameManager.Instance.AddEXP();
             GameManager.Instance.AddScore(1);
             Destroy(this.gameObject);
         }
