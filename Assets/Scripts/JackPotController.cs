@@ -12,22 +12,15 @@ public class JackPotController : MonoBehaviour
 
     bool m_nowRolling = false; //現在ロール中か否か
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] GameObject m_jk = default; //盛大にお祝いしなくちゃなぁ!?
+    [SerializeField] GameObject m_genePoint = default;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Human")
         {
+            GameManager.Instance.AddEXP();
+            GameManager.Instance.AddScore(1);
             DrumRoll();
         }
     }
@@ -37,12 +30,13 @@ public class JackPotController : MonoBehaviour
         //ドラムロール！
         for(var i = 0; i < m_drums.Count; i++)
         {
-            m_drums[i] = Random.Range(0, 7);
+            m_drums[i] = Random.Range(1, 5);
         }
         m_drumText.text = $"[{m_drums[0]}] [{m_drums[1]}] [{m_drums[2]}]";
         if(m_drums[0] == m_drums[1] && m_drums[0] == m_drums[2])
         {
             Debug.Log("じゃっくぽっと");
+            Instantiate(m_jk, m_genePoint.transform.position, m_genePoint.transform.rotation);
         }
     }
 }
