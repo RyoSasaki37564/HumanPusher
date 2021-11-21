@@ -16,7 +16,11 @@ public class TachPointGenerator : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit))
             {
-                Instantiate(m_human, new Vector3(hit.point.x,m_genePos.transform.position.y,m_genePos.transform.position.z),m_genePos.transform.rotation);
+                if(hit.point.x > -8.2 && hit.point.x < 8.2)
+                {
+                    Instantiate(m_human, new Vector3(hit.point.x, m_genePos.transform.position.y, m_genePos.transform.position.z), m_genePos.transform.rotation);
+
+                }
             }
         }
     }

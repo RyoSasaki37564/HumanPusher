@@ -4,29 +4,22 @@ using UnityEngine;
  
 public class CameraSizer : MonoBehaviour
 {
+    [SerializeField] GameObject[] m_camera = new GameObject[2];
 
-    //最初に作った画面のwidth
-    public float defaultWidth = 9.0f;
+    int i = 1;
 
-    //最初に作った画面のheight
-    public float defaultHeight = 16.0f;
-
-    void Start()
+    public void CameraChange()
     {
-        //camera.mainを変数に格納
-        Camera mainCamera = Camera.main;
-
-        //最初に作った画面のアスペクト比 
-        float defaultAspect = defaultWidth / defaultHeight;
-
-        //実際の画面のアスペクト比
-        float actualAspect = (float)Screen.width / (float)Screen.height;
-
-        //実機とunity画面の比率
-        float ratio = actualAspect / defaultAspect;
-
-        //サイズ調整
-        mainCamera.orthographicSize /= ratio;
-
+        i++;
+        if(i % 2 == 0)
+        {
+            m_camera[1].SetActive(true);
+            m_camera[0].SetActive(false);
+        }
+        else
+        {
+            m_camera[0].SetActive(true);
+            m_camera[1].SetActive(false);
+        }
     }
 }
