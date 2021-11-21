@@ -12,7 +12,7 @@ public class EsaGenerator : MonoBehaviour
 
     void Start()
     {
-        for(var i = 0; i < 50; i++)
+        for(var i = 0; i < 30; i++)
         {
             JKRain();
         }
@@ -22,7 +22,7 @@ public class EsaGenerator : MonoBehaviour
     //親方！空から大量のJKが！
     IEnumerator OyakataSorakaraJKga()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
         JKRain();
         StartCoroutine(OyakataSorakaraJKga());
     }

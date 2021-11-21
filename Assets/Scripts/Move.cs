@@ -15,6 +15,9 @@ public class Move : MonoBehaviour
     [SerializeField] GameObject m_minusSetPos = default; //見えない壁を引く線の基準、マイナス側
     [SerializeField] GameObject m_plusSetPos = default; //見えない壁を引く線の基準、プラス側
 
+    [SerializeField] GameObject m_bullet = default; //女子高生とかを射出
+
+    [SerializeField] GameObject m_head = default; //おかしら
 
     void Start()
     {
@@ -26,6 +29,11 @@ public class Move : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+        if(Input.GetButtonDown("Fire1"))
+        {
+            Debug.Log("んぱ");
+            Instantiate(m_bullet, m_head.transform.position, m_head.transform.rotation);
+        }
 
         Vector3 dir = Vector3.forward * v + Vector3.right * h;
 
@@ -97,12 +105,4 @@ public class Move : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Human")
-        {
-            Destroy(collision.gameObject);
-            StatusManager.Instance.AddScore(100);
-        }
-    }
 }
